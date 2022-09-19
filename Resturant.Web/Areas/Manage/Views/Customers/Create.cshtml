@@ -1,0 +1,51 @@
+﻿@model Resturant.Web.Models.Customer
+
+@{
+    ViewData["Title"] = "Create";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<style>
+    body {
+        background-image: url(/lib/images/backimg01.jpg);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+    }
+</style>
+
+<h4>Customer</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <h4 style="color:violet"> <label asp-for="CustomerName" class="control-label"></label></h4>
+                <input asp-for="CustomerName" class="form-control" />
+                <span asp-validation-for="CustomerName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <h4 style="color:violet">
+                    <label asp-for="Phone" class="control-label"></label></h4>
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" button type="button" class="btn btn-primary">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

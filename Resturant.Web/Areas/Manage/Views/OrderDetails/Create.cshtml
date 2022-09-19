@@ -1,0 +1,63 @@
+﻿@model Restaurant.Web.Models.OrderDetail
+
+@{
+    ViewData["Title"] = "Create";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
+<h4>OrderDetail</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="OrderNumber" class="control-label"></label>
+                <select asp-for="OrderNumber" class ="form-control" asp-items="ViewBag.OrderNumber"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="MenuItemId" class="control-label"></label>
+                <select asp-for="MenuItemId" class ="form-control" asp-items="ViewBag.MenuItemId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quantity" class="control-label"></label>
+                <input asp-for="Quantity" class="form-control" />
+                <span asp-validation-for="Quantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" button type="button" class="btn btn-primary">Back to List</a>
+</div>
+
+<br />
+<br />
+<h5 style="color:black">
+    IF YOU ARE NEW USER!!!! Please Resgister First!!</h5>
+<div>
+    <a class="item"
+       asp-area="Manage" asp-controller="Customers" asp-action="Create" button type="button" class="btn btn-success">
+        <b>REGISTER NOW</b>
+    </a>
+   
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

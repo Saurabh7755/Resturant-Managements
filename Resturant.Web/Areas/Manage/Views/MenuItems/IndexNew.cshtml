@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Restaurant.Web.Models.MenuItem>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<br />
+<br />
+<br />
+<br />
+<h1 style="color:"><b> MENU CARD</b></h1>
+
+<style>
+    body {
+        background-image: url(/lib/images/backhome1.jfif);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+    }
+</style>
+
+<br />
+<br />
+<br />
+<div class="card-columns">
+    @foreach (var item in Model)
+    {
+        <div class="card">
+            <div class="card-header">
+                 <b>MENU Item NO:</b> @item.MenuItemId
+            </div>
+            <div class="card-body">
+                
+                    <b> @Html.DisplayNameFor(modelItem => item.MenuItemName) : @item.MenuItemName</b>
+                <br />
+                   
+                        <b>@Html.DisplayNameFor(modelItem =>item.Description) : @item.Description</b>
+                <br />
+                       
+                         <b> @Html.DisplayNameFor(modelItem =>item.Price) : @item.Price</b>
+
+                <br />
+                <br />
+                <img class="card-img-top" src="@item.ImageURL" alt="@item.MenuItemName"
+                 style="height: 100px; border-radius:40%">
+                 <br>
+                 <br>
+                 
+                 
+            </div>
+            <div class="card-footer">
+                <a  button type="button" class="btn btn-warning"></a> |
+                <a button type="button" class="btn btn-success"></a> |
+                <a button type="button" class="btn btn-danger"></a> |
+                <a button type="button" class="btn btn-primary"></a> |
+            </div>
+        </div>
+    }
+</div>
+
+
+

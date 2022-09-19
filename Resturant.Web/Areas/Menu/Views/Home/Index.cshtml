@@ -1,0 +1,72 @@
+﻿@using Restaurant.Web.Areas.Menu.ViewModels
+@model ShowMenuViewModel
+
+@{
+}
+<style>
+    body {
+        background-image: url(/lib/images/backhome1.jfif);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+    }
+</style>
+<br />
+
+<br />
+
+
+<br />
+<br />
+<br />
+
+
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="CategoryId" class="control-label"></label>
+                <select asp-for="CategoryId" class ="form-control" asp-items="ViewBag.CategoryId"></select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">View items</button>
+        </form>
+    </div>
+</div>
+
+
+@if(Model != null && Model.MenuItems != null)
+{
+    <form method="post">
+        <input type="hidden" asp-for="CategoryId" />
+
+        <div class="card-columns mt-3">
+            @foreach(var item in Model.MenuItems) 
+            {
+                <div class="card">
+                    <img class="card-img-top" src="@item.ImageURL" alt="Card image cap" style="max-height:300px">
+                    <div class="card-body">
+                        <h4 class="card-title"> @item.MenuItemName </h4>
+                        <p class="card-text"> @item.Description </p>
+                    </div>
+                    <div class="card-footer">
+                        
+                        <button class="btn btn-sm btn-primary" type="submit"
+                                asp-area="Menu" asp-controller="Home" 
+                                asp-action="AddToCart" asp-route-id="@item.MenuItemId">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            }
+        </div>
+    </form>
+}
+
+
+
+

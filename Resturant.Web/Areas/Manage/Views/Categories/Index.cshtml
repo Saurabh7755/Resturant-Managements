@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Restaurant.Web.Models.Category>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<style>
+    body {
+        background-image: url(/lib/images/backhome1.jfif);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+    }
+</style>
+<br />
+<br />
+<br />
+<h1 style="text-align:center; color:darkgoldenrod">Categories</h1>
+
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>
+                <h5 style="color:white"> @Html.DisplayNameFor(model => model.CategoryName)</h5>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                    <h5 style="color:white">  @Html.DisplayFor(modelItem => item.CategoryName)</h5>
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.CategoryId" button type="button" class="btn btn-primary">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.CategoryId" button type="button" class="btn btn-warning">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.CategoryId" button type="button" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+    <a asp-action="Create" class="btn btn-success col-sm-6" style="margin-left:250px">Add New Category</a>

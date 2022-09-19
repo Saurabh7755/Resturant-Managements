@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Restaurant.Web.Models.Order>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<br />
+<br />
+<br />
+<h1>Tables</h1>
+
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>
+                CustomerId
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderDateTime)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderNumber)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.CustomerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderDateTime)
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.OrderNumber" button type="button" class="btn btn-primary">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.OrderNumber" button type="button" class="btn btn-warning">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.OrderNumber" button type="button" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

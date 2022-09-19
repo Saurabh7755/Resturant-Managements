@@ -1,0 +1,107 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Restaurant.Web</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+
+    @RenderSection("HeadScripts", required: false)
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+                <!-- logo -->
+                <a class="navbar-brand">
+                    <img src="/lib/images/logo.jpg" alt="logo" style="width:60px;">
+                </a>
+                <marquee><h3>RESTAURANT MANAGEMENT</h3></marquee>
+
+                <a class="navbar-brand ml-auto">
+                    <img src="/lib/images/logo.jpg" alt="logo" style="width:60px;">
+                </a>
+                <!-- Links -->
+
+                <ul class="navbar-nav nav-justified navbar-right">
+
+
+                    <li class="nav-item">
+                        <a class="nav-link " asp-area="" asp-page="/Index"><b>Home</b></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
+                            <b>Hotel Owner</b>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item"
+                               asp-area="Manage" asp-controller="Categories" asp-action="Index"><b>ADD CATEGORY</b></a>
+                            <a class="dropdown-item"
+                               asp-area="Manage" asp-controller="MenuItems" asp-action="Index"><b>ADD MENU</b></a>
+                            <a class="dropdown-item"
+                               asp-area="Manage" asp-controller="Customers" asp-action="Create"><b>REGISTER CUSTOMER</b></a>
+                            <a class="dropdown-item"
+                               asp-action="Create" asp-area="Manage" asp-controller="Orders"><b>RESERVE TABLE</b></a>
+                            <a class="dropdown-item"
+                               asp-action="IndexNew" asp-area="Manage" asp-controller="OrderDetails"><b>View Order Details</b></a>
+                            
+
+
+
+
+
+
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
+                            <b> CUSTOMER</b>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item"
+                               asp-area="Manage" asp-controller="Customers" asp-action="Create"><b>REGISTER CUSTOMER</b></a>
+                            <a class="dropdown-item"
+                               asp-action="Create" asp-area="Manage" asp-controller="Orders"><b>RESERVE TABLE</b></a>
+                            <a class="dropdown-item"
+                               asp-action="Create" asp-area="Manage" asp-controller="OrderDetails"><b>Order NOW</b></a>
+                            <a class="dropdown-item"
+                               asp-action="Index" asp-area="Manage" asp-controller="OrderDetails"><b>Pay NOW</b></a>
+                               <a class="dropdown-item"
+                               asp-action="IndexNew" asp-area="Manage" asp-controller="MenuItems"><b>View Menu</b></a>
+
+
+                        </div>
+                    </li>
+
+
+                    <li class="nav-item">
+
+
+                        <a class="nav-link" asp-area="Menu" asp-controller="Home" asp-action="Index">EXPLORE CATEGORY</a>
+                    </li>
+
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
+
